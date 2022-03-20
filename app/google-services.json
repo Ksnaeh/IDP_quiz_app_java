@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007525656746",
+    "project_id": "wemediaapp",
+    "storage_bucket": "wemediaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007525656746:android:dde4dcffb45ac5ed15f8d3",
+        "android_client_info": {
+          "package_name": "com.example.javaquizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007525656746-bfcve1oubbq9c0snodjojbhrol9rubl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3icGaOwFrzfhQvVzOtV-di1dEvfUrjlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007525656746-bfcve1oubbq9c0snodjojbhrol9rubl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
