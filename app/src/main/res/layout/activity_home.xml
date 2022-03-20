@@ -4,33 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Session Code To Begin!"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="142dp" />
 
     <EditText
-        android:id="@+id/loginName"
+        android:id="@+id/editSessionId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="username"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="140dp" />
-
-    <EditText
-        android:id="@+id/loginPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="199dp" />
+        android:text="Session Name"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="188dp" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
+        android:text="Go!"
         tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="316dp" />
-
+        tools:layout_editor_absoluteY="289dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
