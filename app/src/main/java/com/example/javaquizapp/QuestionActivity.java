@@ -20,6 +20,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     //todo: declare buttons for pressing
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

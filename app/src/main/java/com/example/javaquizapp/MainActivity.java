@@ -18,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //todo: declare an array to store users
 
     //todo: declare java's version of sessionstorage
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
