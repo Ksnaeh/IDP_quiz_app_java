@@ -114,6 +114,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                                 Log.d(TAG, "Questions: " + questions.toString());
 
+                                //todo: use 3000 for debugging (default 10000)
                                 cdt = new CountDownTimer(10000, 1000) {
                                     public void onTick(long millisRemaining) {
                                         showQuestion.setText("Question: " + questions.get(startingindex-1));
@@ -159,6 +160,9 @@ public class QuestionActivity extends AppCompatActivity {
                                                     Log.d(TAG, "GoTo ResultsActivity");
 
                                                     //todo: new intent to go next activity
+                                                    Intent myIntent = new Intent(QuestionActivity.this, ResultsActivity.class);
+                                                    myIntent.putExtra("sessionid", value); //Optional parameters
+                                                    QuestionActivity.this.startActivity(myIntent);
                                                 }
                                             }.start();
                                         }
@@ -219,7 +223,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     protected void endQuestion(){
 
-
+        //todo: use 2000 for debugging (default 15000)
         new CountDownTimer(15000, 1000) {
             public void onTick(long millisRemaining) {
                 if (startingindex < iterations) {
@@ -315,7 +319,7 @@ public class QuestionActivity extends AppCompatActivity {
         btnselected = btn; //set global variable for onUpdate();
 
 
-        //todo: add responses to db
+        //add responses to db
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         DocumentReference ref = db.collection("responses").document();
@@ -416,9 +420,6 @@ public class QuestionActivity extends AppCompatActivity {
 
                     cdt.start();
 
-                }
-                else {
-                    //todo: go to ResultsActivity
                 }
             }
         }.start();
