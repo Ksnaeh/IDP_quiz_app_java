@@ -115,7 +115,7 @@ public class QuestionActivity extends AppCompatActivity {
                                 Log.d(TAG, "Questions: " + questions.toString());
 
                                 //todo: use 3000 for debugging (default 10000)
-                                cdt = new CountDownTimer(10000, 1000) {
+                                cdt = new CountDownTimer(3000, 1000) {
                                     public void onTick(long millisRemaining) {
                                         showQuestion.setText("Question: " + questions.get(startingindex-1));
 
@@ -159,7 +159,6 @@ public class QuestionActivity extends AppCompatActivity {
                                                 public void onFinish() {
                                                     Log.d(TAG, "GoTo ResultsActivity");
 
-                                                    //todo: new intent to go next activity
                                                     Intent myIntent = new Intent(QuestionActivity.this, ResultsActivity.class);
                                                     myIntent.putExtra("sessionid", value); //Optional parameters
                                                     QuestionActivity.this.startActivity(myIntent);
@@ -224,7 +223,7 @@ public class QuestionActivity extends AppCompatActivity {
     protected void endQuestion(){
 
         //todo: use 2000 for debugging (default 15000)
-        new CountDownTimer(15000, 1000) {
+        new CountDownTimer(2000, 1000) {
             public void onTick(long millisRemaining) {
                 if (startingindex < iterations) {
                     showQuestion.setText("End of Question Results");

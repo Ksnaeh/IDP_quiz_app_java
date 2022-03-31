@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     Button mButton;
+    Button mRegister;
     EditText mUsername;
     EditText mPassword;
 
@@ -36,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> username;
     ArrayList<String> password;
 
-    //todo: declare java's version of sessionstorage
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mButton = (Button)findViewById(R.id.buttonLogin);
+        mRegister = (Button)findViewById(R.id.registerButton);
         mUsername = (EditText)findViewById(R.id.loginName);
         mPassword = (EditText)findViewById(R.id.loginPassword);
 
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
 
-                        //todo: use array to store users here
                         userid.add((String) document.get("id"));
                         username.add((String) document.get("username"));
                         password.add((String) document.get("password"));
@@ -84,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        mRegister.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        toRegisterPage();
+                    }
+                });
 
 
     }
@@ -108,5 +115,10 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
+    }
+
+    public void toRegisterPage(){
+        Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }
