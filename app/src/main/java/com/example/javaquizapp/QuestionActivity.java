@@ -2,7 +2,7 @@ package com.example.javaquizapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
+//import androidx.preference.PreferenceManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -83,7 +84,7 @@ public class QuestionActivity extends AppCompatActivity {
         button_d = (Button) findViewById(R.id.buttonD);
 
         isSelected = 0;
-        iterations = 2;
+        iterations = 3;
 
 
         Intent intent = getIntent();
@@ -101,7 +102,7 @@ public class QuestionActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-
+                                Log.d(TAG, "Size => " + document.getData().size());
 
                                 questions.add((String) document.get("question"));
                                 question_no.add((String) document.get("questionno"));
