@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFF0D1"
     tools:context=".HomeActivity">
 
     <TextView
@@ -11,14 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="113dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="114dp"
         android:layout_marginBottom="10dp"
-        android:text="Enter Session Code To Begin!"
+        android:text="Room Code:"
+        android:textColor="#C47E93"
         app:layout_constraintBottom_toTopOf="@+id/editSessionId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/editSessionId"
@@ -27,10 +29,12 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="97dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
+        android:hint="Session Name"
         android:inputType="textPersonName"
-        android:text="Session Name"
+        android:textColorHint = "#696969"
+        android:textColor="#000000"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/buttonSession"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,13 +46,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="394dp"
-        android:onClick="buttonClick"
-        android:text="Go!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"
+        android:background="#8FBFE0"
+        android:text="Enter"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSessionId" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="320dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon1" />
+
+    <view
+        android:id="@+id/view3"
+        class="com.google.android.material.appbar.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="#E3655B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSession" />
 </androidx.constraintlayout.widget.ConstraintLayout>

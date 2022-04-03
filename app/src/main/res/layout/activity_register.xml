@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFF0D1"
     tools:context=".RegisterActivity">
 
     <EditText
@@ -11,16 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="103dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
+        android:textColorHint = "#696969"
+        android:textColor = "#000000"
         app:layout_constraintBottom_toTopOf="@+id/newPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/newPassword"
@@ -32,6 +36,8 @@
         android:layout_marginBottom="33dp"
         android:ems="10"
         android:hint="password"
+        android:textColorHint = "#696969"
+        android:textColor = "#000000"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/newEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,10 +51,12 @@
         android:layout_marginStart="101dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
         android:hint="email"
         android:inputType="textPersonName"
+        android:textColorHint = "#696969"
+        android:textColor = "#000000"
         app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,12 +67,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="153dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="41dp"
         android:text="Register"
+        android:background="#8FBFE0"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newEmail" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="320dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/newUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon1" />
+
+    <view
+        android:id="@+id/view2"
+        class="com.google.android.material.appbar.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:background="#E3655B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
