@@ -102,7 +102,7 @@ public class QuestionActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                Log.d(TAG, "Size => " + document.getData().size());
+
 
                                 questions.add((String) document.get("question"));
                                 question_no.add((String) document.get("questionno"));
@@ -116,41 +116,56 @@ public class QuestionActivity extends AppCompatActivity {
                                 Log.d(TAG, "Questions: " + questions.toString());
 
                                 //todo: use 3000 for debugging (default 10000)
-                                cdt = new CountDownTimer(3000, 1000) {
+                                cdt = new CountDownTimer(10000, 1000) {
                                     public void onTick(long millisRemaining) {
-                                        showQuestion.setText("Question: " + questions.get(startingindex));
+                                        try {
+                                            showQuestion.setText("Question: " + questions.get(startingindex));
 
-                                        button_a.setText(choice_a.get(startingindex));
-                                        button_b.setText(choice_b.get(startingindex));
-                                        button_c.setText(choice_c.get(startingindex));
-                                        button_d.setText(choice_d.get(startingindex));
+                                            button_a.setText(choice_a.get(startingindex));
+                                            button_b.setText(choice_b.get(startingindex));
+                                            button_c.setText(choice_c.get(startingindex));
+                                            button_d.setText(choice_d.get(startingindex));
 
-                                        if (isSelected == 0){
-                                            button_a.setEnabled(true);
-                                            button_a.setBackgroundColor(Color.parseColor("#8FBFE0"));
+                                            if (isSelected == 0){
+                                                button_a.setEnabled(true);
+                                                button_a.setBackgroundColor(Color.parseColor("#8FBFE0"));
 
 
-                                            button_b.setEnabled(true);
-                                            button_b.setBackgroundColor(Color.parseColor("#8FBFE0"));
+                                                button_b.setEnabled(true);
+                                                button_b.setBackgroundColor(Color.parseColor("#8FBFE0"));
 
-                                            button_c.setEnabled(true);
-                                            button_c.setBackgroundColor(Color.parseColor("#8FBFE0"));
+                                                button_c.setEnabled(true);
+                                                button_c.setBackgroundColor(Color.parseColor("#8FBFE0"));
 
-                                            button_d.setEnabled(true);
-                                            button_d.setBackgroundColor(Color.parseColor("#8FBFE0"));
+                                                button_d.setEnabled(true);
+                                                button_d.setBackgroundColor(Color.parseColor("#8FBFE0"));
+                                            }
+                                        } catch (IndexOutOfBoundsException ex){
+                                                Log.d(TAG, "Index out of bounds");
+                                                cancel();
+
+                                                showQuestion.setText("End of Quiz!");
+                                                new CountDownTimer(5000, 1000) {
+                                                    public void onTick(long millisRemaining) {
+
+                                                    }
+                                                    public void onFinish() {
+                                                        Log.d(TAG, "GoTo ResultsActivity");
+
+                                                        Intent myIntent = new Intent(QuestionActivity.this, ResultsActivity.class);
+                                                        myIntent.putExtra("sessionid", value); //Optional parameters
+                                                        QuestionActivity.this.startActivity(myIntent);
+                                                    }
+                                                }.start();
                                         }
+
 
                                     }
                                     public void onFinish() {
                                         showQuestion.setText("End of Quiz!");
-                                        //onTick(10000);
+                                        Log.d(TAG, "Questions: " + startingindex);
+                                        Log.d(TAG, "Iterations: " + iterations);
                                         countOnce = 0;
-                                        if (isSelected == 0){
-                                            endQuestion();
-                                        }
-                                        else{
-                                            onUpdate(btnselected);
-                                        }
 
                                         if (startingindex == iterations){
                                             new CountDownTimer(5000, 1000) {
@@ -165,6 +180,12 @@ public class QuestionActivity extends AppCompatActivity {
                                                     QuestionActivity.this.startActivity(myIntent);
                                                 }
                                             }.start();
+                                        }
+                                        else if (isSelected == 0){
+                                            endQuestion();
+                                        }
+                                        else{
+                                            onUpdate(btnselected);
                                         }
 
                                     }
@@ -224,7 +245,7 @@ public class QuestionActivity extends AppCompatActivity {
     protected void endQuestion(){
 
         //todo: use 2000 for debugging (default 15000)
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(15000, 1000) {
             public void onTick(long millisRemaining) {
                 if (startingindex < iterations) {
                     showQuestion.setText("End of Question Results");
